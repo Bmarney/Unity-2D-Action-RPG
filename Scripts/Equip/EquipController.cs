@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class EquipController : EquipItem
+public class EquipController : MonoBehaviour
 {
     private EquipItem curEquipItem;
     private GameObject curEquipObject;
 
     private bool useInput;
 
-    [SerializeField] private ItemData testEquipItem;
+ 
 
     [Header("Components")]
     [SerializeField] private Transform equipObjectOrigin;
@@ -33,7 +33,9 @@ public class EquipController : EquipItem
 
     }
 
-    public void Equip()
+   
+
+    public void Equip( ItemData item)
     {
         if (HasItemEquipped())
             UnEquip();
@@ -63,6 +65,7 @@ public class EquipController : EquipItem
         if (context.phase == InputActionPhase.Canceled)
             useInput = false;
             
+
     }
 
 
